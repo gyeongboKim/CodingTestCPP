@@ -31,7 +31,19 @@
 
 using namespace std;
 
-int main() 
+long modPow(long base, long exp, long mod) {
+	long result = 1;
+	while (exp > 0) {
+		if (exp % 2 == 1) {
+			result = (result * base) % mod;
+		}
+		base = (base * base) % mod;
+		exp /= 2;
+	}
+	return result;
+}
+
+int main()
 {
 	cin.tie(NULL);
 	cout.tie(NULL);
@@ -40,17 +52,16 @@ int main()
 	int senteceLength = 0;
 	long long sum = 0;
 	double ratio = 31;
-	long long modularNumber = 1234567891;
+	long long mod = 1234567891;
 	cin >> senteceLength;
 	char sentence[50];
 
 	for (int index = 0; index < senteceLength; index++) {
 		cin >> sentence[index];
-		sum += (sentence[index] - '`')*pow(ratio, index);
+		sum += ((long long)(sentence[index] - '`')%mod * modPow(ratio, index, mod))%mod;
 	}
-	cout << sum % modularNumber<< '\n';
+	cout << sum % mod << '\n';
 
-	
-	
+
+
 }
- 
