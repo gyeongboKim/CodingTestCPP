@@ -4,8 +4,8 @@
 #include <stack>
 #include <bitset>
 /// <summary>
-///
-/// 
+///	1. endl은 시관초과 유발. \n 쓸것.
+/// 2. if문 구조를 효율적으로 할것(return)
 /// </summary>
 using namespace std;
 
@@ -94,3 +94,4 @@ void bitwiseOperator(string command, int bit) {
 		return;
 	}
 }
+
